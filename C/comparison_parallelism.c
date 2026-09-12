@@ -1,4 +1,6 @@
-// Source used as refrence: https://tldp.org/LDP/lpg/node11.html
+// Sources used as refrence: 
+//  - https://tldp.org/LDP/lpg/node11.html
+//  - https://en.cppreference.com/c/chrono/clock
 
 #include <stddef.h>
 #include <stdio.h>
