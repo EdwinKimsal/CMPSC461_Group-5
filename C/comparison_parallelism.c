@@ -1,4 +1,4 @@
-// Sources used as refrence: 
+// Source(s) used as refrence: 
 //  - https://tldp.org/LDP/lpg/node11.html
 //  - https://en.cppreference.com/c/chrono/clock
 
@@ -22,7 +22,7 @@ long long sum_nums(long long *nums, int n) {
 
 
 int main(){
-    // Lists and empty sum
+    // Lists
     int len_per_list = 10000000;
     int max_num = 1000;
     long long *sub_list1 = malloc(sizeof(long long)* len_per_list);
