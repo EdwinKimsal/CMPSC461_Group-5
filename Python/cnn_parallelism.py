@@ -1,3 +1,10 @@
+#
+# The following code SNIPPET is from a Photovoltaic Detectior Utilizing CNNs
+#
+# The co-authors of this specific piece were:
+# Joseph Ranalli and Edwin Kimsal
+#
+
 from torch.utils.data import DataLoader
 
 # ...
