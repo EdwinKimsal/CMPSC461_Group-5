@@ -41,6 +41,8 @@ async function runWorkerLoop() {
     return;
   }
 
+  // ...
+
   try {
     // Staff evaluator trials come first: somebody is watching that page, and the
     // ceiling inside claimAndRunTrial is what stops them crowding out grading.
