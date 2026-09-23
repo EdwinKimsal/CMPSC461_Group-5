@@ -17,5 +17,7 @@ from torch.utils.data import DataLoader
 
 # ...
 
-    train_loader, valid_loader, test_loader, T_MAX, OUT_CLASSES = nn_lib.create_objs(DATA_DIR, img, train, validate, test, CROPSIZE, BATCH_SIZE, EPOCHS, img_type)
+    train_loader, valid_loader, test_loader, T_MAX, OUT_CLASSES = nn_lib.create_objs(
+        DATA_DIR, img, train, validate, test, CROPSIZE, BATCH_SIZE, EPOCHS, img_type
+    )
     nn_lib.output(EPOCHS, model, train_loader, valid_loader, test_loader)
