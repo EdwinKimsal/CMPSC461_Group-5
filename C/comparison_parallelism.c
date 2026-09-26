@@ -81,7 +81,7 @@ int main(){
             len_per_list
         );
         write(fd[1], &loc_sum, sizeof(loc_sum));
-    } else { // Parremt
+    } else { // Parent
         close(fd[1]); // Close write
         long long loc_sum = sum_nums(
             sub_list2,
