@@ -28,13 +28,13 @@ int main(){
     long long *sub_list1 = malloc(sizeof(long long)* len_per_list);
     long long *sub_list2 = malloc(sizeof(long long)* len_per_list);;
 
+    srand(time(NULL));
     for (int i=0; i<len_per_list; i++) {
         sub_list1[i] = rand() % max_num;
         sub_list2[i] = rand() % max_num;
     }
 
     // Time
-    srand(time(NULL));
     struct timespec start, end;
     double elapsed_time;
 
@@ -81,6 +81,8 @@ int main(){
             len_per_list
         );
         write(fd[1], &loc_sum, sizeof(loc_sum));
+        close(fd[1]);
+        _exit(0);
     } else { // Parent
         close(fd[1]); // Close write
         long long loc_sum = sum_nums(
@@ -89,16 +91,18 @@ int main(){
         );
         read(fd[0], &sum_of_nums, sizeof(sum_of_nums));
         wait(NULL);
+        close(fd[0]);
+
         sum_of_nums = sum_of_nums + loc_sum;
-
-        clock_gettime(CLOCK_MONOTONIC, &end);
-        elapsed_time = (end.tv_sec - start.tv_sec) + ((end.tv_nsec - start.tv_nsec) / 1000000000.0);
-
-        printf("Parallelization\n");
-        printf("Sum of Nums: %lli\n", sum_of_nums);
-        printf("Time: %f seconds\n", elapsed_time);
-        printf("\n");
     }
+
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    elapsed_time = (end.tv_sec - start.tv_sec) + ((end.tv_nsec - start.tv_nsec) / 1000000000.0);
+
+    printf("Parallelization\n");
+    printf("Sum of Nums: %lli\n", sum_of_nums);
+    printf("Time: %f seconds\n", elapsed_time);
+    printf("\n");
 
     // Clean up
     free(sub_list1);
